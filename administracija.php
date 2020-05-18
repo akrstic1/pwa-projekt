@@ -135,7 +135,6 @@ if(isset($_POST['update'])){
                                     <label for="slika">Slika:</label>
                                     
                                     <input type="file" class="form-control" id="slika" value="'.$row['slika'].'" name="slika"/> <br><img src="'.$row['slika'].'" width=100px>
-                                    // pokraj gumba za odabir slike pojavljuje se umanjeni prikaz postojeće slike
                                 
                                 </div>
                                 <div class="form-group">
