@@ -1,0 +1,162 @@
+body {
+    width: 100%;
+    font-size: 100%;
+    margin: 0;
+    background: #f7f7f7;
+    color: #2b2b2b;
+}
+
+.center {
+    text-align: center;
+}
+
+.inner-wrapper {
+    max-width: 1248px;
+    margin: 0 auto; 
+}
+
+.form-wrapper {
+    margin-bottom: 20px;
+}
+
+.m-bottom {
+    margin-bottom: 40px; 
+}
+
+.header, .footer {
+    font-family: Helvetica Neue,Arial,sans-serif;
+    color: #333;
+    background: #fff;
+    position: relative;
+    z-index: 20;
+    height: 120px;
+}
+
+.header-main {
+    align-items: center;
+    justify-content: center;
+}
+
+.header-navigation {
+    background: #666666;
+}
+
+
+.header-navigation nav a.nav-link {
+    color:#fff;
+    vertical-align: middle;
+}
+
+
+section {
+    margin-top: 40px; 
+}
+
+section .kat-wrapper {
+    background-color: #fff;
+    padding: 20px 10px;
+}
+
+section h2.kat-naslov {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-stretch: condensed;
+    font-size: 1.75em;
+    color: #333;
+}
+
+section a.kat-naslov-link {
+    color: #333;
+}
+
+article.clanak {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    border-right: 1px solid #eaeaea;
+    padding-right: 20px;
+    min-height: 400px;
+}
+
+/*
+div.clanak-slika {
+
+}
+
+*/
+
+div.clanak-naslov a.tag-link, #clanak a.tag-link {
+    color: #e63b11;; 
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.75em;
+}
+
+article a.clanak-link {
+    font-size: 1.5rem;
+    color: #212121;
+}
+article h2.clanak-sazetak {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.30em;
+    line-height: 1.25em;
+    color: #333;
+    font-weight: 700;
+}
+
+#clanak {
+    background-color: #fff;
+    padding: 20px 10px;
+    margin-top: 40px; 
+}
+#clanak .kat-wrapper {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+
+#clanak figure.clanak-slika {
+    width: 100%;
+    margin-top: 40px; 
+}
+
+#clanak .clanak-kategorija {
+    font-stretch: condensed;
+}
+
+#clanak a.tag-link {
+    font-size: 0.75em;
+}
+
+
+#clanak .clanak-datum {
+    color: #999; 
+    font-size: 1em; 
+    font-weight: 400;
+}
+
+#clanak .clanak-title {
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3.30em;
+    line-height: 1.15em;
+    color: #333;
+}
+
+
+#clanak .clanak-sazetak{
+    margin-top: 0;
+    line-height: 130%;
+    margin-bottom: 1.25em;
+    font-size: 1.5em;
+    line-height: 1.42;
+    font-family: Georgia,serif;
+}
+
+#clanak .clanak-body p{
+    font-size: 1.25em;
+    font-family: Georgia,serif;
+    color: #333;
+    line-height: 1.5em;
+    margin-bottom: 1.70em;
+}
+
