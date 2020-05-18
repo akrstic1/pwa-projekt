@@ -160,3 +160,8 @@ article h2.clanak-sazetak {
     margin-bottom: 1.70em;
 }
 
+form .error{
+    border-color: red;
+    color: red;
+
+}

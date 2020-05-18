@@ -43,10 +43,12 @@ function provjera_unos($dbc){
     }
 
     # VRACANJE NA FORMU U SLUCAJU NEPOTPUNOG UPLOADA
+    
     if($full_upload == 0){
-        echo "<script type='text/javascript'>alert('Ispunite sva polja.');</script>";
+        echo "<script type='text/javascript'>alert('Greška u unosu, pokušajte ponovno.');</script>";
         exit;
     }
+    
 
     # UPLOAD SLIKE U FOLDER NA SERVERU #
     $target_dir = "upload_img/";
@@ -79,10 +81,12 @@ function unos($naslov, $datum_vrijeme, $sazetak, $tekst, $target_file, $kategori
 
 }
 
+
 function redirect($id){
     header("Location: clanak.php?id=$id");
     exit;
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -91,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -146,16 +151,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="unosf" id="unosf" enctype="multipart/form-data">
                                 <div class="form-row">
                                     <div class="col-lg-8">
                                         <div class="form-group">
                                             <label for="naslov">Naslov vjesti:</label>
-                                            <input type="text" name="title" class="form-control" value="">
+                                            <input type="text" name="title" id="naslov" class="form-control" value="">
                                         </div>
                                         <div class="form-group">
                                             <label for="sazetak">Kratki sadržaj vijesti (do 50 znakova):</label>
-                                            <textarea name="about" id="" cols="30" rows="10" class="form-control"></textarea>
+                                            <textarea name="about" id="sazetak" cols="30" rows="10" class="form-control"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="tekst">Sadržaj vijesti:</label>
@@ -170,7 +175,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                         <div class="form-group">
                                             <label for="kategorija">Kategorija vijesti:</label>
                                             <div class="form-field">
-                                                <select name="category" id="kategorija" class="form-control">';
+                                                <select name="category" id="kategorija" class="form-control">
+                                                    <option disabled selected value> -- Odaberi kategoriju -- </option>
                                                     <option value="svijet">Svijet</option>
                                                     <option value="ekonomija">Ekonomija</option>
                                                 </select>
@@ -215,6 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -224,6 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    -->
 </body>
     
 </html>
