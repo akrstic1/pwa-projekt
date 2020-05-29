@@ -6,11 +6,18 @@
     $get_kategorija = $_GET['kategorija'];
 
     # TRAZENJE CLANKA PO ID-u
-    $query = "SELECT * FROM vijesti WHERE kategorija='$get_kategorija'";
-    $result = mysqli_query($dbc, $query);
+    $prequery = "SELECT naslov, datum, sazetak, tekst, slika, kategorija FROM vijesti WHERE kategorija=?";
+    $query = mysqli_stmt_init($dbc);
 
-    mysqli_close($dbc); 
-
+    if(mysqli_stmt_prepare($query, $prequery)){
+        mysqli_stmt_bind_param($query, 's', $get_kategorija);
+        mysqli_stmt_execute($query);
+    }else{
+        die('Error querying databese.');
+    }
+    
+    //Stavljanje rezultate u varijable
+    mysqli_stmt_bind_result($query, $naslov, $datum, $sazetak, $tekst, $slika, $kategorija);
 ?>
 
 
@@ -60,26 +67,26 @@
     <main>
         <div class="inner-wrapper">
         <?php
-        while($row = mysqli_fetch_array($result)) {
+        while( mysqli_stmt_fetch($query) ) {
             echo '
             <article class="m-bottom" id="clanak">
                 <div class="container-fluid kat-wrapper">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="clanak-kategorija"><a href="" class="tag-link">'.$row['kategorija'].'</a></h2 >       
-                            <h1 class="clanak-title">'.$row['naslov'].'</h1>
-                            <span class="clanak-datum">'.$row['datum'].'</span>
+                            <h2 class="clanak-kategorija"><a href="" class="tag-link">'.$kategorija.'</a></h2 >       
+                            <h1 class="clanak-title">'.$naslov.'</h1>
+                            <span class="clanak-datum">'.$datum.'</span>
                             
                             <figure class="clanak-slika">
-                                <img src="'.$row['slika'].'" class="img-fluid " alt="'.$row['naslov'].'" title="'.$row['naslov'].'">
+                                <img src="'.$slika.'" class="img-fluid " alt="'.$naslov.'" title="'.$naslov.'">
                             </figure>
                             <h2 class="clanak-sazetak">
-                                '.$row['sazetak'].' 
+                                '.$sazetak.' 
                             </h2>
                         
                             <div class="clanak-body">      
                                 <p>
-                                    '.$row['tekst'].'
+                                    '.$tekst.'
                                 </p>
                             </div>
                     </div>
