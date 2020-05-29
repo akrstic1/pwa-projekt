@@ -62,10 +62,10 @@ if( isset($_POST["submit"]) ){
     <form class="form-login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
       
       <h1 class="h3 mb-3 font-weight-normal">Prijava korisinka</h1>
-      <label for="username" class="sr-only">Korisničko ime</label>
+      <label for="korisnicko_ime" class="sr-only">Korisničko ime</label>
       <input type="text" id="korisnicko_ime" name="korisnicko_ime" class="form-control" placeholder="Unesite svoje korisničko ime" required autofocus>
    
-      <label for="password" class="sr-only">Password</label>
+      <label for="lozinka" class="sr-only">Lozinka</label>
       <input type="password" id="lozinka" name="lozinka" class="form-control" placeholder="Lozinka" required>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Prijava</button>
