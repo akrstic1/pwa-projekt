@@ -70,22 +70,27 @@ function provjera_unos($dbc){
 
 function unos($naslov, $datum_vrijeme, $sazetak, $tekst, $target_file, $kategorija, $arhiva, $dbc){
 
-    $query = "INSERT INTO vijesti (naslov, datum, sazetak, tekst, slika, kategorija,
-    arhiva ) VALUES ('$naslov', '$datum_vrijeme', '$sazetak', '$tekst', '$target_file',
-    '$kategorija', '$arhiva')";
-    mysqli_query($dbc, $query) or die('Error querying databese.');
+    $prequery = "INSERT INTO vijesti (naslov, datum, sazetak, tekst, slika, kategorija, arhiva)
+                 VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $query = mysqli_stmt_init($dbc);
+
+    if(mysqli_stmt_prepare($query, $prequery)){
+        mysqli_stmt_bind_param($query, 'ssssssi', $naslov, $datum_vrijeme, $sazetak, $tekst, $target_file, $kategorija, $arhiva);
+        mysqli_stmt_execute($query);
+    }else{
+        die('Error querying databese.');
+    }
+
+    //Zatvaranje konekcije i redirect na novi članak
     $last_id = mysqli_insert_id($dbc);
     mysqli_close($dbc);  
-    
-    redirect($last_id);
-
-}
-
-
-function redirect($id){
-    header("Location: clanak.php?id=$id");
+    header("Location: clanak.php?id=$last_id");
     exit;
+
 }
+
+
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){

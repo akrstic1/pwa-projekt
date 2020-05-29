@@ -9,6 +9,8 @@ if(isset($_POST['delete'])){
     if(mysqli_stmt_prepare($query, $prequery)){
         mysqli_stmt_bind_param($query, 'i', $id);
         mysqli_stmt_execute($query);
+    }else{
+        die('Error querying databese.');
     }
 
     //Zatvaranje konekcije i refresh
@@ -41,6 +43,8 @@ if(isset($_POST['update'])){
         if(mysqli_stmt_prepare($query, $prequery)){
             mysqli_stmt_bind_param($query, 'ssssii', $naslov, $sazetak, $tekst, $kategorija, $arhiva, $id);
             mysqli_stmt_execute($query);
+        }else{
+            die('Error querying databese.');
         }
 
         mysqli_close($dbc);
@@ -59,6 +63,8 @@ if(isset($_POST['update'])){
         if(mysqli_stmt_prepare($query, $prequery)){
             mysqli_stmt_bind_param($query, 'sssssii', $naslov, $sazetak, $tekst, $target_file, $kategorija, $arhiva, $id);
             mysqli_stmt_execute($query);
+        }else{
+            die('Error querying databese.');
         }
 
         mysqli_close($dbc);
