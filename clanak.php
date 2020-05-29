@@ -6,12 +6,21 @@ include 'connect.php';
 $get_id = $_GET['id'];
 
 # TRAZENJE CLANKA PO ID-u
-$query = "SELECT * FROM vijesti WHERE id=$get_id";
-$result = mysqli_query($dbc, $query);
+$prequery = "SELECT naslov, datum, sazetak, tekst, slika, kategorija FROM vijesti WHERE id=?";
+$query = mysqli_stmt_init($dbc);
 
-mysqli_close($dbc); 
+if(mysqli_stmt_prepare($query, $prequery)){
+    mysqli_stmt_bind_param($query, 'i', $get_id);
+    mysqli_stmt_execute($query);
+}else{
+    die('Error querying databese.');
+}
 
-$row = mysqli_fetch_array($result);
+//Stavljanje rezultate u varijable
+mysqli_stmt_bind_result($query, $naslov, $datum, $sazetak, $tekst, $slika, $kategorija);
+
+mysqli_stmt_fetch($query);
+
 
 ?>
 
@@ -62,20 +71,20 @@ $row = mysqli_fetch_array($result);
                 <div class="container-fluid kat-wrapper">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h2 class="clanak-kategorija"><a href="" class="tag-link"><?php echo $row['kategorija'];?></a></h2 >       
-                            <h1 class="clanak-title"><?php echo $row['naslov'];?></h1>
-                            <span class="clanak-datum"><?php echo $row['datum'];?></span>
+                            <h2 class="clanak-kategorija"><a href="" class="tag-link"><?php echo $kategorija;?></a></h2 >       
+                            <h1 class="clanak-title"><?php echo $naslov;?></h1>
+                            <span class="clanak-datum"><?php echo $datum;?></span>
                             
                             <figure class="clanak-slika">
-                                <img src="<?php echo $row['slika'];?>" class="img-fluid " alt="<?php echo $row['naslov'];?>" title="<?php echo $row['naslov'];?>">
+                                <img src="<?php echo $slika;?>" class="img-fluid " alt="<?php echo $naslov;?>" title="<?php echo $naslov;?>">
                             </figure>
                             <h2 class="clanak-sazetak">
-                                <?php echo $row['sazetak'];?> 
+                                <?php echo $sazetak;?> 
                             </h2>
                         
                             <div class="clanak-body">      
                                 <p>
-                                    <?php echo $row['tekst'];?>
+                                    <?php echo $tekst;?>
                                 </p>
                             </div>
                     </div>
