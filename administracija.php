@@ -71,6 +71,14 @@ if(isset($_POST['update'])){
         header("Refresh:0");
     }
 }
+session_start();
+if( empty($_SESSION["korisnicko_ime"]) ){
+    header("Location: login.php");
+    exit();
+}elseif($_SESSION["razina"] == 1){
+    echo $_SESSION["korisnicko_ime"].", nemate dovoljna prava za pristup ovoj stranici.";
+    exit();
+}
 
 ?>
 
