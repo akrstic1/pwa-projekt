@@ -45,7 +45,7 @@
                 <div class="col-md-12">
                     <div class="inner-wrapper">
                         <nav class="nav">
-                            <a class="nav-link" href="./index.php">Naslovna</a>
+                            <a class="nav-link" href="./index.php">Naslovnica</a>
                             <a class="nav-link" href="./kategorija.php?kategorija=svijet">Svijet</a>
                             <a class="nav-link" href="./kategorija.php?kategorija=ekonomija">Ekonomija</a>
                             <a class="nav-link" href="./administracija.php">Administracija </a>

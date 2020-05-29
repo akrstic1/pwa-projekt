@@ -3,9 +3,17 @@ include 'connect.php';
 # DELETE
 if(isset($_POST['delete'])){
     $id=$_POST['id'];
-    $query = "DELETE FROM vijesti WHERE id=$id ";
-    $result = mysqli_query($dbc, $query);
+    $prequery = "DELETE FROM vijesti WHERE id=?";
+    $query = mysqli_stmt_init($dbc);
 
+    if(mysqli_stmt_prepare($query, $prequery)){
+        mysqli_stmt_bind_param($query, 'i', $id);
+        mysqli_stmt_execute($query);
+    }
+
+    //Zatvaranje konekcije i refresh
+    mysqli_close($dbc);
+    header("Refresh:0");
 
 }
 
@@ -27,10 +35,15 @@ if(isset($_POST['update'])){
 
     # GLEDA JELI IZMJENJENA SLIKA
     if(!is_uploaded_file($_FILES['slika']['tmp_name'])){
-        $query = "UPDATE vijesti SET naslov='$naslov', sazetak='$sazetak', tekst='$tekst', kategorija='$kategorija', arhiva='$arhiva' WHERE id=$id ";
-        $result = mysqli_query($dbc, $query);
-        mysqli_close($dbc);
+        $prequery = "UPDATE vijesti SET naslov=?, sazetak=?, tekst=?, kategorija=?, arhiva=? WHERE id=? ";
+        $query = mysqli_stmt_init($dbc);
 
+        if(mysqli_stmt_prepare($query, $prequery)){
+            mysqli_stmt_bind_param($query, 'ssssii', $naslov, $sazetak, $tekst, $kategorija, $arhiva, $id);
+            mysqli_stmt_execute($query);
+        }
+
+        mysqli_close($dbc);
         header("Refresh:0");
 
     }else{
@@ -46,13 +59,7 @@ if(isset($_POST['update'])){
         mysqli_close($dbc);
 
         header("Refresh:0");
-
-
-
     }
-
-    
-    
 }
 
 ?>
