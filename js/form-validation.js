@@ -5,13 +5,13 @@ $(function () {
             title: {
                 required: true,
                 minlength: 5,
-                maxlength: 30,
+                maxlength: 64,
 
             },
             about: {
                 required: true,
                 minlength: 10,
-                maxlength: 100,
+                maxlength: 64,
 
             },
             content: {
@@ -29,14 +29,14 @@ $(function () {
         messages: {
             title: {
                 required: "Potrebno je upisati naslov",
-                minlength: "Duljina naslova mora biti između 5 i 30 znakova",
-                maxlength: "Duljina naslova mora biti između 5 i 30 znakova",
+                minlength: "Duljina naslova mora biti između 5 i 50 znakova",
+                maxlength: "Duljina naslova mora biti između 5 i 50 znakova",
 
             },
             about: {
                 required: "Potrebno je upisati sažetak",
-                minlength: "Duljina sažetka mora biti između 10 i 100 znakova",
-                maxlength: "Duljina sažetka mora biti između 10 i 100 znakova",
+                minlength: "Duljina sažetka mora biti između 10 i 64 znakova",
+                maxlength: "Duljina sažetka mora biti između 10 i 64 znakova",
 
             },
             content: {
