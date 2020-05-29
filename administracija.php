@@ -52,12 +52,16 @@ if(isset($_POST['update'])){
 
         move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file);
 
-        $query = "UPDATE vijesti SET naslov='$naslov', sazetak='$sazetak', tekst='$tekst',
-        slika='$target_file', kategorija='$kategorija', arhiva='$arhiva' WHERE id=$id ";
-        $result = mysqli_query($dbc, $query);
+        $prequery = "UPDATE vijesti SET naslov=?, sazetak=?, tekst=?,
+        slika=?, kategorija=?, arhiva=? WHERE id=?";
+        $query = mysqli_stmt_init($dbc);
+
+        if(mysqli_stmt_prepare($query, $prequery)){
+            mysqli_stmt_bind_param($query, 'sssssii', $naslov, $sazetak, $tekst, $target_file, $kategorija, $arhiva, $id);
+            mysqli_stmt_execute($query);
+        }
 
         mysqli_close($dbc);
-
         header("Refresh:0");
     }
 }
