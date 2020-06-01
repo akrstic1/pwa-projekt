@@ -71,6 +71,8 @@ if(isset($_POST['update'])){
         header("Refresh:0");
     }
 }
+
+#PREGLED PRAVA PRISTUPA
 session_start();
 if( empty($_SESSION["korisnicko_ime"]) ){
     header("Location: login.php");

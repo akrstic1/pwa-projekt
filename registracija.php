@@ -35,7 +35,7 @@ if( isset($_POST["submit"]) ){
 
         mysqli_stmt_execute($query);
 
-        echo "Registracija uspješna. Kliknite <a href='login.php'>ovdje</a> za login";
+        exit("Registracija uspješna. Kliknite <a href='login.php'>ovdje</a> za login");
     }
 }
 ?>
