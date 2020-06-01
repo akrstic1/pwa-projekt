@@ -12,7 +12,7 @@ function provjera_unos($dbc){
     $datum_vrijeme;
     $arhiva = 0;
 
-    # PROVJERA UNOSA #
+    # PROVJERA UNOSA
 
     if(!empty($_POST['title'])){
         $naslov = $_POST['title'];
