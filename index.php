@@ -47,6 +47,8 @@ $blank_ekonomija = 4 - mysqli_num_rows($result_ekonomija);
                             <a class="nav-link" href="./kategorija.php?kategorija=ekonomija">Ekonomija</a>
                             <a class="nav-link" href="./administracija.php">Administracija </a>
                             <a class="nav-link" href="./unos.php">Unos</a>
+                            <a class="nav-link" href="./registracija.php">Registracija</a>
+                            <a class="nav-link" href="./login.php">Login</a>
                         </nav>
                     </div>
                 </div>

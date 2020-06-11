@@ -58,6 +58,8 @@ mysqli_stmt_fetch($query);
                             <a class="nav-link" href="./kategorija.php?kategorija=ekonomija">Ekonomija</a>
                             <a class="nav-link" href="./administracija.php">Administracija </a>
                             <a class="nav-link" href="./unos.php">Unos</a>
+                            <a class="nav-link" href="./registracija.php">Registracija</a>
+                            <a class="nav-link" href="./login.php">Login</a>
                         </nav>
                     </div>
                 </div>

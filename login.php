@@ -31,7 +31,8 @@ if( isset($_POST["submit"]) ){
         
         //Provjera razine
         if($razina == 1){
-          echo "$korisnicko_ime, nemate dovoljna prava za pristup ovoj stranici.";
+          echo "$korisnicko_ime, nemate dovoljna prava za pristup administraciji.";
+          echo "Nazad na <a href='index.php'>home</a>";
           exit();
         }else{
           header("Location: administracija.php");

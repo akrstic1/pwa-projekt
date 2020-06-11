@@ -117,6 +117,8 @@ if( empty($_SESSION["korisnicko_ime"]) ){
                             <a class="nav-link" href="./kategorija.php?kategorija=ekonomija">Ekonomija</a>
                             <a class="nav-link active" href="./administracija.php">Administracija </a>
                             <a class="nav-link" href="./unos.php">Unos</a>
+                            <a class="nav-link" href="./registracija.php">Registracija</a>
+                            <a class="nav-link" href="./login.php">Login</a>
                         </nav>
                     </div>
                 </div>
