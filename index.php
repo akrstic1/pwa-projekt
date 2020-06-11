@@ -1,8 +1,8 @@
 <?php
 include 'connect.php';
-$query = "SELECT * FROM vijesti WHERE kategorija = 'svijet'  AND arhiva = 0 LIMIT 4";
+$query = "SELECT * FROM vijesti WHERE kategorija = 'svijet'  AND arhiva = 0 ORDER BY datum ASC LIMIT 4";
 $result_svijet = mysqli_query($dbc, $query);
-$query = "SELECT * FROM vijesti WHERE kategorija = 'ekonomija' AND arhiva = 0 LIMIT 4";
+$query = "SELECT * FROM vijesti WHERE kategorija = 'ekonomija' AND arhiva = 0 ORDER BY datum ASC LIMIT 4";
 $result_ekonomija = mysqli_query($dbc, $query);
 mysqli_close($dbc); 
 

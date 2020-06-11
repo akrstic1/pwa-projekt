@@ -6,7 +6,7 @@
     $get_kategorija = $_GET['kategorija'];
 
     # TRAZENJE CLANKA PO ID-u
-    $prequery = "SELECT naslov, datum, sazetak, tekst, slika, kategorija FROM vijesti WHERE kategorija=?";
+    $prequery = "SELECT naslov, datum, sazetak, tekst, slika, kategorija FROM vijesti WHERE kategorija=? ORDER BY datum ASC";
     $query = mysqli_stmt_init($dbc);
 
     if(mysqli_stmt_prepare($query, $prequery)){

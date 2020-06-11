@@ -130,7 +130,7 @@ if( empty($_SESSION["korisnicko_ime"]) ){
         <div class="inner-wrapper">
         <?php
         include 'connect.php';
-        $query = "SELECT * FROM vijesti";
+        $query = "SELECT * FROM vijesti ORDER BY datum ASC";
         $result = mysqli_query($dbc, $query);
         while($row = mysqli_fetch_array($result)) {
 
